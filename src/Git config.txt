@@ -1,0 +1,7 @@
+Настройки Git
+
+git config --global user.name "Ваше имя"
+git config --global user.email "почта с github"
+git config --global core.autocrlf true
+git config --global core.safecrlf warn
+git config --global core.quotepath off
