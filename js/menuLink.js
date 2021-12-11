@@ -1,4 +1,4 @@
-import { getPopular, getTop } from "./services.js";
+import { getPopular, getTop, getTrends } from "./services.js";
 import renderCard from "./renderCard.js";
 
 const title = document.querySelector(".other-films__title");
@@ -18,6 +18,18 @@ const menuLink = () => {
             }
             if (target.classList.contains("get-nav__link_top-tv")){
                 getTop("tv")
+                .then(data => renderCard(data.results))
+            }
+            if (target.classList.contains("get-nav__link_top-movies")){
+                getTop("movie")
+                .then(data => renderCard(data.results))
+            }
+            if (target.classList.contains("get-nav__link_popular-tv")){
+                getTop("tv")
+                .then(data => renderCard(data.results))
+            }
+            if (target.classList.contains("get-nav__link_triends")){
+                getTrends()
                 .then(data => renderCard(data.results))
             }
         }

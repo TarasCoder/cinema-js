@@ -8,8 +8,12 @@ const renderCard = async (data) => {
 
     const link = document.createElement("a");
     link.className = "other-films__link";
-    link.dataset.rating = item.vote_average;
-
+    if (item.vote_average === 0) {
+      link.dataset.rating = "-";
+    } else {
+      link.dataset.rating = item.vote_average;
+    }
+    
     const img = document.createElement("img");
     img.className = "other-films__img";
     img.alt = `poster ${item.title || item.name}`;
@@ -19,7 +23,7 @@ const renderCard = async (data) => {
     card.append(link);
     return card;
   });
-  listCard.append(...cards)
+  listCard.append(...cards);
 };
 
 export default renderCard;
